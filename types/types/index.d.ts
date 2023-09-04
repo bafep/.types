@@ -1,4 +1,5 @@
 import { Snowflake, ApplicationCommandDataResolvable, PermissionResolvable, Collection } from "discord.js";
+import React, { ReactNode } from "react";
 type SnowflakeOrString = Snowflake | string;
 interface RunOptions<T extends Record<string, any>> {
     client: ExtendedClient;
@@ -98,4 +99,97 @@ interface ExtendedClient {
     autoResponses: MyCollection<any>;
     kigaPosts: MyCollection<any>;
 }
-export { SnowflakeOrString, RunOptions, RunFunction, ExtendedInteraction, ExtendedButtonInteraction, CommandOptions, CommandType, Verification, VerificationData, Datenschutz, ServerStats, KigaPosts, KigaPostData, AutoResponse, VerificationFormFields, VerificationRequest, MyCollection, ExtendedClient, };
+type Author = {
+    name: string;
+    picture: string;
+};
+type PostType = {
+    slug: string;
+    title: string;
+    date: string;
+    coverImage: string;
+    author: Author;
+    excerpt: string;
+    ogImage: {
+        url: string;
+    };
+    content: string;
+};
+type WebPostProps = {
+    allPosts: PostType[];
+};
+type EventDataProps = {
+    date: string;
+    title: string;
+    description: string;
+};
+interface PageData {
+    text: string;
+    wait: number;
+}
+export declare const data: PageData[];
+type Profile = {
+    name: string;
+    sex: string;
+    avatar: string;
+    about: string;
+    biography?: string;
+    facts: string[];
+    wasIchGerneMag: string[];
+    diamonds?: Diamond[];
+    instagram?: string;
+    snapchat?: string;
+};
+type AvatarProps = {
+    name: string;
+    picture: string;
+};
+type Diamond = {
+    id: string;
+    src: string;
+};
+type ProfileType = Record<string, Profile>;
+type ProfilePageProps = {
+    profile?: Profile;
+};
+interface SymbolProps {
+    symbol: string;
+    value: number;
+}
+type AlertProps = {
+    preview?: boolean;
+};
+interface CardProps {
+    number: number;
+    onClick: () => void;
+    isFlipped: boolean;
+}
+type ContainerProps = {
+    children?: React.ReactNode;
+};
+type ImageProps = {
+    title: string;
+    src: string;
+    slug?: string;
+};
+type DateProps = {
+    dateString: string;
+};
+type HeroProps = {
+    title: string;
+    coverImage?: string;
+    date?: string;
+    src?: string;
+    excerpt?: string;
+    author?: Author;
+    slug?: string;
+};
+type IntroProps = {};
+type DataType = {
+    text: string;
+    wait: number;
+};
+type PostProps = {
+    children?: ReactNode;
+};
+export { SnowflakeOrString, RunOptions, RunFunction, ExtendedInteraction, ExtendedButtonInteraction, CommandOptions, CommandType, Verification, VerificationData, Datenschutz, ServerStats, KigaPosts, KigaPostData, AutoResponse, VerificationFormFields, VerificationRequest, MyCollection, ExtendedClient, Author, PostType, WebPostProps, EventDataProps, PageData, Profile, AvatarProps, Diamond, ProfileType, ProfilePageProps, SymbolProps, AlertProps, CardProps, ContainerProps, ImageProps, DateProps, HeroProps, IntroProps, PostProps, DataType, };
