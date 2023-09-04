@@ -42,6 +42,7 @@ type CommandType<T extends Record<string, any>> = ApplicationCommandDataResolvab
     options?: CommandOptions;
 };
 
+// Verification module 
 interface Verification {
     enabled: boolean;
     blacklisted: boolean;
@@ -76,12 +77,14 @@ interface VerificationRequest {
     status: VerificationRequestStatus;
 }
 
+// Button interaction
 interface Datenschutz {
     data: VerificationData;
     hasRequestedCodes: boolean;
     hasDeletedData: boolean;
 }
 
+// ServerStats (automated)
 interface ServerStats {
     online: number;
     members: number;
@@ -89,6 +92,7 @@ interface ServerStats {
     footer: Array<[string, Date]>;
 }
 
+// KigaPosts (automated)
 interface KigaPosts {
     _id: string;
     guildID: string;
@@ -105,6 +109,7 @@ interface KigaPostData extends KigaPosts {
     footerText: string;
 }
 
+// AutoResponses (automated) to a certain trigger
 interface AutoResponse {
     _id: string;
     guildID: string;
@@ -117,6 +122,7 @@ interface AutoResponse {
 
 type MyCollection<T> = Collection<string, T>;
 
+// client module
 interface ExtendedClient {
     commands: MyCollection<any>;
     buttons: MyCollection<any>;
